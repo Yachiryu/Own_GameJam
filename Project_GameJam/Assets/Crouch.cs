@@ -5,10 +5,11 @@ using UnityEngine;
 public class Crouch : MonoBehaviour
 {
     public GameObject character;
-    public bool isAgachado = false;
+    public bool isAgachado = true;
     void Start()
     {
         character = this.gameObject;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void Update()
@@ -17,19 +18,19 @@ public class Crouch : MonoBehaviour
     }
     void agacharse() 
     {
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            Debug.Log("agachado");
-            character.transform.position = new Vector3(0, 1.1f, 0);
-            //isAgachado = true;
+            //Debug.Log("agachado");
+            character.transform.localScale = new Vector3(0, 0.6f, 0);
+            isAgachado = true;
         }
         
-        /*if (Input.GetKey(KeyCode.LeftShift) && isAgachado)
+        if (Input.GetKeyUp(KeyCode.LeftShift) && isAgachado)
         {
-                Debug.Log("parado");
-                character.transform.localScale = new Vector3(1, 1f, 1);
+                //Debug.Log("parado");
+                character.transform.localScale = new Vector3(0, 1, 0);
                 isAgachado = false;
-        }*/
+        }
         
     }
 }
