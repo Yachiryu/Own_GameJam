@@ -6,10 +6,12 @@ public class Crouch : MonoBehaviour
 {
     public GameObject character;
     public bool isAgachado = true;
+    public PlayerInteractions playerInteractions;
     void Start()
     {
         character = this.gameObject;
         Cursor.lockState = CursorLockMode.Locked;
+        playerInteractions = FindObjectOfType<PlayerInteractions>();
     }
 
     void Update()
@@ -18,18 +20,19 @@ public class Crouch : MonoBehaviour
     }
     void agacharse() 
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (playerInteractions.tieneObjeto == false)
         {
-            //Debug.Log("agachado");
-            character.transform.localScale = new Vector3(0, 0.6f, 0);
-            isAgachado = true;
-        }
+            if (Input.GetKeyDown(KeyCode.LeftShift))
+            {
+                character.transform.localScale += new Vector3(0,-0.6f, 0);
+                isAgachado = true;
+            }
         
-        if (Input.GetKeyUp(KeyCode.LeftShift) && isAgachado)
-        {
-                //Debug.Log("parado");
-                character.transform.localScale = new Vector3(0, 1, 0);
-                isAgachado = false;
+            if (Input.GetKeyUp(KeyCode.LeftShift) && isAgachado)
+            {
+                    character.transform.localScale -= new Vector3(0,-0.6f, 0);
+                    isAgachado = false;
+            }
         }
         
     }
