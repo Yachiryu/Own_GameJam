@@ -2,28 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class TaxesPuntos : MonoBehaviour
 {
-    public static int score = 0;
-    public string scoreText = "Score";
+    public int moneyCount, puntajeNecesario;
+    private TextMeshProUGUI textMesh;
 
-    /* Hace que la puntuacion se muestre en pantalla */
-    public Text textscore;
-    //public static Score_UI gamescore;
-
-    void Awake()
+    void Start()
     {
-        //gamescore = this;
+        textMesh = GetComponent<TextMeshProUGUI>();
     }
-
-    void Update()
+    private void Update()
     {
-        if (textscore != null)
-        {
-            textscore.text = scoreText + score.ToString();
-        }
+        textMesh.text = moneyCount.ToString("Dinero : 0");
     }
-
-
 }
