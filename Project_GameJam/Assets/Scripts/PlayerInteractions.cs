@@ -13,11 +13,12 @@ public class PlayerInteractions : MonoBehaviour
 
     public Crouch crouch;
 
-    public int moneyCount;
+    public TaxesPuntos taxes;
 
     private void Start()
     {
         crouch = FindObjectOfType<Crouch>();
+        taxes = FindObjectOfType<TaxesPuntos>();
     }
 
     private void Update()
@@ -65,13 +66,14 @@ public class PlayerInteractions : MonoBehaviour
     {
         Debug.DrawRay(CameraPlayer.position, CameraPlayer.forward * rayDistance, Color.green);
 
-        if (Physics.Raycast(CameraPlayer.position, CameraPlayer.forward, out RaycastHit hit, rayDistance, lm))
+        if (Physics.Raycast(CameraPlayer.position, CameraPlayer.forward, out RaycastHit hit, rayDistance, lm2) && Input.GetKey(KeyCode.T))
         {
-            if (hit.collider && Input.GetKeyDown(KeyCode.T))
+            if (hit.collider.gameObject.tag == ("Billete50K"))
             {
                 Debug.Log("Platica");
+                taxes.moneyCount += 10;
+                Destroy(hit.collider.gameObject);
             }
-
         }
         
     }
