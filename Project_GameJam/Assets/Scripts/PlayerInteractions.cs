@@ -6,11 +6,14 @@ public class PlayerInteractions : MonoBehaviour
 {
     public Transform CameraPlayer;
     public Transform ObjetoVacio;
-    public LayerMask lm;
+    public LayerMask lm; 
+    public LayerMask lm2;
     public float rayDistance;
     public bool tieneObjeto;
 
     public Crouch crouch;
+
+    public int moneyCount;
 
     private void Start()
     {
@@ -20,6 +23,7 @@ public class PlayerInteractions : MonoBehaviour
     private void Update()
     {
         RecogerObjects();
+        RecogerMoney();
     }
     public void RecogerObjects()
     {
@@ -55,6 +59,24 @@ public class PlayerInteractions : MonoBehaviour
         {
             tieneObjeto = false;
         }
+
+    }
+    public void RecogerMoney() 
+    {
+        Debug.DrawRay(CameraPlayer.position, CameraPlayer.forward * rayDistance, Color.green);
+
+        if (Physics.Raycast(CameraPlayer.position, CameraPlayer.forward, out RaycastHit hit, rayDistance, lm))
+        {
+            if (hit.collider && Input.GetKeyDown(KeyCode.T))
+            {
+                Debug.Log("Platica");
+            }
+
+        }
+        
+    }
+    public void RecogerRopa()
+    {
 
     }
 

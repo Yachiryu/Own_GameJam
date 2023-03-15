@@ -1042,9 +1042,9 @@ GameObject:
   - component: {fileID: 1190325360}
   - component: {fileID: 1190325359}
   - component: {fileID: 1190325358}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Cube (1)
-  m_TagString: Untagged
+  m_TagString: Billete50k
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1709,6 +1709,10 @@ PrefabInstance:
     - target: {fileID: 155890261622313707, guid: 95e2d5fb288e48f458b5a703f3ce04fa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 160347202163159076, guid: 95e2d5fb288e48f458b5a703f3ce04fa, type: 3}
+      propertyPath: lm2.m_Bits
+      value: 256
       objectReference: {fileID: 0}
     - target: {fileID: 161220030260730091, guid: 95e2d5fb288e48f458b5a703f3ce04fa, type: 3}
       propertyPath: m_Name
