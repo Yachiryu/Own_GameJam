@@ -37,4 +37,8 @@ public class Objetivos : MonoBehaviour
             }
         }
     }
+
+    // Recoger los platos 
+    // Recoger la ropa 
+    // Recoger la basura
 }
