@@ -6,37 +6,63 @@ using UnityEditor.UI;
 
 public class Objetivos : MonoBehaviour
 {
-    public int numObjetivos;
-    public TextMeshProUGUI textoMision;
-    //public GameObject botonMision;
+    public int cantBasura;
+    public TextMeshProUGUI textBasura;
+    public GameObject canvaObjetivos;
+
+    //PlayerInteractions playerInteractions;
 
     private void Start()
     {
-        numObjetivos = GameObject.FindGameObjectsWithTag("Objetivo").Length;
-        textoMision.text = "Obten las esferas rojas" +
-                            "\n Restantes: " + numObjetivos;
+        //playerInteractions = GetComponent<PlayerInteractions>();
+
+        cantBasura = GameObject.FindGameObjectsWithTag("Basura").Length;
+        /*textBasura.text = "Obten las esferas rojas" +
+                            "\n Restantes: " + cantBasura;*/
     }
 
     private void Update()
     {
-        
-    }
-    private void OnTriggerEnter(Collider col)
-    {
-        if (col.gameObject.tag == "Objetivo")
+        if (Input.GetKeyDown(KeyCode.Q))
         {
-            Destroy(col.transform.parent.gameObject);
-            numObjetivos--;
-            textoMision.text = "obten las esferas rojas" +
-                                "\n Restantes: " + numObjetivos;
+            canvaObjetivos.SetActive(true);
+        }
+        if (Input.GetKeyUp(KeyCode.Q))
+        {
+            canvaObjetivos.SetActive(false);
+        }
 
-            if (numObjetivos <=0)
+        CantidadBasura();
+
+    }
+   /* private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.tag == "Basura")
+        {
+            Destroy(collision.transform.parent.gameObject);
+            cantBasura--;
+            textBasura.text = "obten las esferas rojas" +
+                                "\n Restantes: " + cantBasura;
+
+            if (cantBasura <=0)
             {
-                textoMision.text = "Recogiste las bolas :)";
+                textBasura.text = "Recogiste las bolas :)";
                 
             }
         }
+    }*/
+    public void CantidadBasura() 
+    {
+        textBasura.text = "Recoge la basura y metela al contenedor" +
+                          "\nRestantes: " + cantBasura;
+
+        if (cantBasura <= 0)
+        {
+            textBasura.text = "Basura recogida";
+
+        }
     }
+
 
     // Recoger los platos 
     // Recoger la ropa 

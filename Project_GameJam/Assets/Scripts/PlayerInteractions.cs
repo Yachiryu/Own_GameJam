@@ -24,7 +24,7 @@ public class PlayerInteractions : MonoBehaviour
     private void Update()
     {
         RecogerObjects();
-        RecogerMoney();
+        ObjetivesInteracciones();
     }
     public void RecogerObjects()
     {
@@ -62,7 +62,7 @@ public class PlayerInteractions : MonoBehaviour
         }
 
     }
-    public void RecogerMoney() 
+    public void ObjetivesInteracciones() 
     {
         Debug.DrawRay(CameraPlayer.position, CameraPlayer.forward * rayDistance, Color.green);
 
@@ -77,9 +77,6 @@ public class PlayerInteractions : MonoBehaviour
         }
         
     }
-    public void RecogerRopa()
-    {
 
-    }
 
 }
