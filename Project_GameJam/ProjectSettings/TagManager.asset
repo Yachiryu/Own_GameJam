@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Billete50K
+  - Objetivo
   layers:
   - Default
   - TransparentFX
