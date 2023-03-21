@@ -883,7 +883,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.079, y: -8.488}
+  m_AnchoredPosition: {x: 2.079, y: -25}
   m_SizeDelta: {x: 984.702, y: 271.368}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1647042018
@@ -912,14 +912,20 @@ MonoBehaviour:
     R - Tomar objetos
 
 
-    Click izquierdo - Abrir
-    puertas y cajones
+    Q - Revisar objetivos
+
+
+    Click
+    izquierdo - Abrir puertas y cajones
 
 
     Espacio - Saltar
 
 
-    Shift - Agacharse'
+    Shift - Agacharse
+
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b6219be7dbb642549b611dd832d7dae9, type: 2}
   m_sharedMaterial: {fileID: 6106932995218190457, guid: b6219be7dbb642549b611dd832d7dae9, type: 2}
@@ -946,8 +952,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 28
-  m_fontSizeBase: 28
+  m_fontSize: 22
+  m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
