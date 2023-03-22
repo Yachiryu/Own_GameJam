@@ -10,6 +10,10 @@ public class Objetivos : MonoBehaviour
 
     public int cantBasura, cantDinero, cantRopa, cantPlatos, cantIngredentes;
     public TextMeshProUGUI textBasura, textServicios, textRopa, textPlatos, textIngredientes;
+    public bool totbasura, totservicios, totropa, totplatos, totingredientes, totdinero;
+    public bool objetivosCumplidos;
+
+    //CarroVictoria carroV;
 
     private void Start()
     {
@@ -37,6 +41,7 @@ public class Objetivos : MonoBehaviour
         PagoImpuestos();
         CantidadPlatos();
         CantidadIngredientes();
+        CondicionVictoria();
 
     }
 
@@ -48,16 +53,17 @@ public class Objetivos : MonoBehaviour
         if (cantBasura <= 0)
         {
             textBasura.text = "Basura recogida";
-
+            totbasura = true;
         }
     }
     public void PagoImpuestos()
     {
-        textServicios.text = "Consigue los 500 dolares de la hipoteca";
+        textServicios.text = "Consigue los 750 dolares de la hipoteca";
 
-        if (cantDinero >= 9)
+        if (cantDinero >= 750)
         {
             textServicios.text = "Dinero conseguido";
+            totdinero = true;
         }
     }
     public void CantidadPlatos()
@@ -68,7 +74,7 @@ public class Objetivos : MonoBehaviour
         if (cantPlatos <= 0)
         {
             textPlatos.text = "Platos Recogidos";
-
+            totplatos = true;
         }
     }
     public void CantidadIngredientes()
@@ -79,7 +85,7 @@ public class Objetivos : MonoBehaviour
         if (cantIngredentes <= 0)
         {
             textIngredientes.text = "Almuerzo listo";
-
+            totingredientes = true;
         }
     }
     private void OnTriggerEnter(Collider collision)
@@ -94,13 +100,17 @@ public class Objetivos : MonoBehaviour
             if (cantRopa <=0)
             {
                 textRopa.text = "Recogiste la ropa :)";
+                Debug.Log("RopaTotal");
+                totropa = true;
             }
         }
     }
-
-
-
-    // Recoger los platos 
-    // Recoger la ropa 
-    // Recoger la basura
+    public void CondicionVictoria()
+    {
+        if (totbasura && totservicios && totropa && totplatos && totingredientes && totdinero)
+        {
+            Debug.Log("ganaste");
+            objetivosCumplidos = true;
+        }
+    }
 }

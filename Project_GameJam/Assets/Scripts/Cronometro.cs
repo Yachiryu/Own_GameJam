@@ -28,7 +28,7 @@ public class Cronometro : MonoBehaviour
             if (restantes < 1) 
             {
                 enMarcha=false;
-                //SceneManager.LoadScene("Game_Over");
+                Debug.Log("Perdiste");
             }
 
             int tempMin = Mathf.FloorToInt(restantes / 60);

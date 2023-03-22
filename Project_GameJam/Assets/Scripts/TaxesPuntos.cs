@@ -6,7 +6,7 @@ using TMPro;
 
 public class TaxesPuntos : MonoBehaviour
 {
-    public int moneyCount, puntajeNecesario;
+    public int moneyCount;
     private TextMeshProUGUI textMesh;
 
     void Start()
