@@ -15,6 +15,6 @@ public class TaxesPuntos : MonoBehaviour
     }
     private void Update()
     {
-        textMesh.text = moneyCount.ToString("Dinero : 0");
+        textMesh.text = moneyCount.ToString("Dinero: 0");
     }
 }
