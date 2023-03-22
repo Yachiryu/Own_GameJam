@@ -24,13 +24,13 @@ public class Crouch : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.LeftShift))
             {
-                character.transform.localScale += new Vector3(0,-0.6f, 0);
+                character.transform.localScale += new Vector3(0,-0.7f, 0);
                 isAgachado = true;
             }
         
             if (Input.GetKeyUp(KeyCode.LeftShift) && isAgachado)
             {
-                    character.transform.localScale -= new Vector3(0,-0.6f, 0);
+                    character.transform.localScale -= new Vector3(0,-0.7f, 0);
                     isAgachado = false;
             }
         }

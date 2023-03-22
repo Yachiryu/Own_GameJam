@@ -4,9 +4,14 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Billete50K
-  - Objetivo
   - Basura
+  - Ropa
+  - Billete100dll
+  - Billete50dll
+  - Billete30dll
+  - Billete50K
+  - Ingrediente
+  - Platos
   layers:
   - Default
   - TransparentFX

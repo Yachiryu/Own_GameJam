@@ -6,19 +6,20 @@ using UnityEditor.UI;
 
 public class Objetivos : MonoBehaviour
 {
-    public int cantBasura;
-    public TextMeshProUGUI textBasura;
     public GameObject canvaObjetivos;
 
-    //PlayerInteractions playerInteractions;
+    public int cantBasura, cantDinero, cantRopa, cantPlatos, cantIngredentes;
+    public TextMeshProUGUI textBasura, textServicios, textRopa, textPlatos, textIngredientes;
 
     private void Start()
     {
-        //playerInteractions = GetComponent<PlayerInteractions>();
-
         cantBasura = GameObject.FindGameObjectsWithTag("Basura").Length;
-        /*textBasura.text = "Obten las esferas rojas" +
-                            "\n Restantes: " + cantBasura;*/
+        cantRopa = GameObject.FindGameObjectsWithTag("Ropa").Length;
+        cantPlatos = GameObject.FindGameObjectsWithTag("Platos").Length;
+        cantIngredentes = GameObject.FindGameObjectsWithTag("Ingrediente").Length;
+        
+        textRopa.text = "Recoge la ropa para ir a trabajar" +
+                                "\n Ropa restante: " + cantRopa;
     }
 
     private void Update()
@@ -33,24 +34,12 @@ public class Objetivos : MonoBehaviour
         }
 
         CantidadBasura();
+        PagoImpuestos();
+        CantidadPlatos();
+        CantidadIngredientes();
 
     }
-   /* private void OnTriggerEnter(Collider collision)
-    {
-        if (collision.gameObject.tag == "Basura")
-        {
-            Destroy(collision.transform.parent.gameObject);
-            cantBasura--;
-            textBasura.text = "obten las esferas rojas" +
-                                "\n Restantes: " + cantBasura;
 
-            if (cantBasura <=0)
-            {
-                textBasura.text = "Recogiste las bolas :)";
-                
-            }
-        }
-    }*/
     public void CantidadBasura() 
     {
         textBasura.text = "Recoge la basura y metela al contenedor" +
@@ -62,6 +51,53 @@ public class Objetivos : MonoBehaviour
 
         }
     }
+    public void PagoImpuestos()
+    {
+        textServicios.text = "Consigue los 500 dolares de la hipoteca";
+
+        if (cantDinero >= 9)
+        {
+            textServicios.text = "Dinero conseguido";
+        }
+    }
+    public void CantidadPlatos()
+    {
+        textPlatos.text = "Recoge los platos" +
+                          "\nRestantes: " + cantPlatos;
+
+        if (cantPlatos <= 0)
+        {
+            textPlatos.text = "Platos Recogidos";
+
+        }
+    }
+    public void CantidadIngredientes()
+    {
+        textIngredientes.text = "¡Arma tu almuerzo!" +
+                          "\nRestantes: " + cantIngredentes;
+
+        if (cantIngredentes <= 0)
+        {
+            textIngredientes.text = "Almuerzo listo";
+
+        }
+    }
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.tag == "Ropa")
+        {
+            Destroy(collision.gameObject);
+            cantRopa--;
+            textRopa.text = "Recoge la ropa para ir a trabajar" +
+                            "\nRopa restante: " + cantRopa;
+
+            if (cantRopa <=0)
+            {
+                textRopa.text = "Recogiste la ropa :)";
+            }
+        }
+    }
+
 
 
     // Recoger los platos 
