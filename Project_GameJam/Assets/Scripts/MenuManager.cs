@@ -25,6 +25,11 @@ public class MenuManager : MonoBehaviour
         SceneManager.LoadScene("Story");
     }
 
+    public void Objetivos()
+    {
+        SceneManager.LoadScene("Objetivos");
+    }
+
     public void QuitGame()
     {
         Application.Quit();
