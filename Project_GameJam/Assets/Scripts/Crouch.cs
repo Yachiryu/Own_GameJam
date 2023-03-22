@@ -10,7 +10,7 @@ public class Crouch : MonoBehaviour
     void Start()
     {
         character = this.gameObject;
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.Locked;
         playerInteractions = FindObjectOfType<PlayerInteractions>();
     }
 

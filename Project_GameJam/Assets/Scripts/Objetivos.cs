@@ -10,7 +10,7 @@ public class Objetivos : MonoBehaviour
 
     public int cantBasura, cantDinero, cantRopa, cantPlatos, cantIngredentes;
     public TextMeshProUGUI textBasura, textServicios, textRopa, textPlatos, textIngredientes;
-    public bool totbasura, totservicios, totropa, totplatos, totingredientes, totdinero;
+    public bool totbasura, totropa, totplatos, totingredientes, totdinero;
     public bool objetivosCumplidos;
 
     //CarroVictoria carroV;
@@ -80,7 +80,7 @@ public class Objetivos : MonoBehaviour
     public void CantidadIngredientes()
     {
         textIngredientes.text = "¡Arma tu almuerzo!" +
-                          "\nRestantes: " + cantIngredentes;
+                                "\nRestantes: " + cantIngredentes;
 
         if (cantIngredentes <= 0)
         {
@@ -95,21 +95,19 @@ public class Objetivos : MonoBehaviour
             Destroy(collision.gameObject);
             cantRopa--;
             textRopa.text = "Recoge la ropa para ir a trabajar" +
-                            "\nRopa restante: " + cantRopa;
+                           "\nRopa restante: " + cantRopa;
 
             if (cantRopa <=0)
             {
                 textRopa.text = "Recogiste la ropa :)";
-                Debug.Log("RopaTotal");
                 totropa = true;
             }
         }
     }
     public void CondicionVictoria()
     {
-        if (totbasura && totservicios && totropa && totplatos && totingredientes && totdinero)
+        if (totbasura && totropa && totplatos && totingredientes && totdinero)
         {
-            Debug.Log("ganaste");
             objetivosCumplidos = true;
         }
     }

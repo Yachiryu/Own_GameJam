@@ -13,6 +13,12 @@ public class Cronometro : MonoBehaviour
     private float restantes;
     public bool enMarcha;
 
+    public MenuManager menuManager;
+
+    private void Start()
+    {
+        menuManager = FindObjectOfType<MenuManager>();
+    }
     public void Awake()
     {
         restantes = (minutos * 60) + segundos;
@@ -28,7 +34,7 @@ public class Cronometro : MonoBehaviour
             if (restantes < 1) 
             {
                 enMarcha=false;
-                Debug.Log("Perdiste");
+                menuManager.Lose();
             }
 
             int tempMin = Mathf.FloorToInt(restantes / 60);
