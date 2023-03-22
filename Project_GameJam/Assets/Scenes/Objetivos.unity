@@ -1332,8 +1332,9 @@ MonoBehaviour:
   m_text: "Botar la basura: Recoge las bolsas de basura y llevalas al recipiente
     verde.\n\nPaga los servicios p\xFAblicos: Re\xFAne dinero buscando los billetes
     distribuidos en el mapa\n\nPrepara tu almuerzo: Busca y reune los ingredientes
-    desplegados en el mapa.\n\nNOTA: Algunos elementos se recogen dando click o pasando
-    por encima de ellos. \n\n"
+    desplegados en el mapa.\n\nCuando hayas completado los objetivos, acercate al
+    carro para irte a trabajar.\n\nNOTA: Algunos elementos se recogen dando click
+    o pasando por encima de ellos. \n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b6219be7dbb642549b611dd832d7dae9, type: 2}
   m_sharedMaterial: {fileID: 6106932995218190457, guid: b6219be7dbb642549b611dd832d7dae9, type: 2}
