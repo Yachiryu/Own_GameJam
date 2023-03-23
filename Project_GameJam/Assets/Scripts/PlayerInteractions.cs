@@ -14,12 +14,14 @@ public class PlayerInteractions : MonoBehaviour
     public Crouch crouch;
     public TaxesPuntos taxes;
     public Objetivos objetivos;
+    public Sonidos sonidos;
 
     private void Start()
     {
         crouch = FindObjectOfType<Crouch>();
         taxes = FindObjectOfType<TaxesPuntos>();
         objetivos = FindObjectOfType<Objetivos>();
+        sonidos = FindObjectOfType<Sonidos>();
     }
 
     private void Update()
@@ -67,13 +69,14 @@ public class PlayerInteractions : MonoBehaviour
     {
         Debug.DrawRay(CameraPlayer.position, CameraPlayer.forward * rayDistance, Color.green);
 
-        if (Physics.Raycast(CameraPlayer.position, CameraPlayer.forward, out RaycastHit hit, rayDistance, lm2) && Input.GetKey(KeyCode.Mouse0))
+        if (Physics.Raycast(CameraPlayer.position, CameraPlayer.forward, out RaycastHit hit, rayDistance, lm2) && Input.GetKey(KeyCode.R))
         {
             if (hit.collider.gameObject.tag == ("Billete100dll"))
             {
                 Debug.Log("Platica100");
                 taxes.moneyCount += 100;
                 objetivos.cantDinero += 100;
+                sonidos.SonidoDinero();
                 Destroy(hit.collider.gameObject);
             }
             if (hit.collider.gameObject.tag == ("Billete50dll"))
@@ -81,6 +84,7 @@ public class PlayerInteractions : MonoBehaviour
                 Debug.Log("Platica50");
                 taxes.moneyCount += 50;
                 objetivos.cantDinero += 50;
+                sonidos.SonidoDinero();
                 Destroy(hit.collider.gameObject);
             }
             if (hit.collider.gameObject.tag == ("Billete30dll"))
@@ -88,18 +92,21 @@ public class PlayerInteractions : MonoBehaviour
                 Debug.Log("Platica30");
                 taxes.moneyCount += 30;
                 objetivos.cantDinero += 30;
+                sonidos.SonidoDinero();
                 Destroy(hit.collider.gameObject);
             }
             if (hit.collider.gameObject.tag == ("Ingrediente"))
             {
                 Debug.Log("Ingredientes");
                 objetivos.cantIngredentes--;
+                sonidos.SonidoComida();
                 Destroy(hit.collider.gameObject);
             }
             if (hit.collider.gameObject.tag == ("Platos"))
             {
                 Debug.Log("plato");
                 objetivos.cantPlatos --;
+                sonidos.SonidoRecoger();
                 Destroy(hit.collider.gameObject);
             }
 

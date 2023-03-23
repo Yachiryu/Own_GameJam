@@ -13,6 +13,8 @@ public class Objetivos : MonoBehaviour
     public bool totbasura, totropa, totplatos, totingredientes, totdinero;
     public bool objetivosCumplidos;
 
+    public Sonidos sonidos;
+
     //CarroVictoria carroV;
 
     private void Start()
@@ -21,7 +23,9 @@ public class Objetivos : MonoBehaviour
         cantRopa = GameObject.FindGameObjectsWithTag("Ropa").Length;
         cantPlatos = GameObject.FindGameObjectsWithTag("Platos").Length;
         cantIngredentes = GameObject.FindGameObjectsWithTag("Ingrediente").Length;
-        
+
+        sonidos = FindObjectOfType<Sonidos>();
+
         textRopa.text = "Recoge la ropa para ir a trabajar" +
                                 "\n Ropa restante: " + cantRopa;
     }
@@ -54,6 +58,11 @@ public class Objetivos : MonoBehaviour
         {
             textBasura.text = "Basura recogida";
             totbasura = true;
+            //sonidos.SonidoObjetivo();
+        }
+        if (totbasura == true)
+        {
+
         }
     }
     public void PagoImpuestos()
@@ -64,6 +73,7 @@ public class Objetivos : MonoBehaviour
         {
             textServicios.text = "Dinero conseguido";
             totdinero = true;
+            //sonidos.SonidoObjetivo();
         }
     }
     public void CantidadPlatos()
@@ -75,6 +85,7 @@ public class Objetivos : MonoBehaviour
         {
             textPlatos.text = "Platos Recogidos";
             totplatos = true;
+            //sonidos.SonidoObjetivo();
         }
     }
     public void CantidadIngredientes()
@@ -86,6 +97,7 @@ public class Objetivos : MonoBehaviour
         {
             textIngredientes.text = "Almuerzo listo";
             totingredientes = true;
+            //sonidos.SonidoObjetivo();
         }
     }
     private void OnTriggerEnter(Collider collision)
@@ -94,6 +106,7 @@ public class Objetivos : MonoBehaviour
         {
             Destroy(collision.gameObject);
             cantRopa--;
+            sonidos.SonidoRecoger();
             textRopa.text = "Recoge la ropa para ir a trabajar" +
                            "\nRopa restante: " + cantRopa;
 
@@ -109,6 +122,11 @@ public class Objetivos : MonoBehaviour
         if (totbasura && totropa && totplatos && totingredientes && totdinero)
         {
             objetivosCumplidos = true;
+            //sonidos.SonidoObjetivoGen();
         }
+        /*if (objetivosCumplidos == true)
+        {
+            //sonidos.SonidoObjetivoGen();
+        }*/
     }
 }
